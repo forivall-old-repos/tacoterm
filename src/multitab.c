@@ -1936,7 +1936,7 @@ MultiWin *multi_win_new_blank(const char *display_name, Options *shortcuts,
         multi_win_set_show_tabs_menu_items(win, FALSE);
         multi_win_hide_tabs(win);
     }
-    win->add_tab_button = multitab_close_button_new("list-add");
+    win->add_tab_button = multitab_close_button_new("list-add-symbolic");
     g_signal_connect_swapped(win->add_tab_button, "clicked",
             G_CALLBACK(multi_win_new_tab_action), win);
     gtk_notebook_set_action_widget(notebook, win->add_tab_button, GTK_PACK_END);
@@ -2161,8 +2161,9 @@ void multi_tab_remove_close_button(MultiTab *tab)
 
 void multi_tab_set_status_icon_name(MultiTab *tab, const char *name)
 {
-    if (!strcmp(tab->status_icon_name ? tab->status_icon_name : "window-close",
-            name ? name : "window-close"))
+    if (!strcmp(tab->status_icon_name ?
+            tab->status_icon_name : "window-close-symbolic",
+            name ? name : "window-close-symbolic"))
     {
         return;
     }

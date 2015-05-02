@@ -91,8 +91,11 @@ void
 multitab_close_button_set_image(MultitabCloseButton *self,
         const char *image_name)
 {
-    gtk_image_set_from_icon_name (self->image,
-            image_name ? image_name : "window-close",
+    g_autoptr(GIcon) icon;
+    icon = g_themed_icon_new_with_default_fallbacks (image_name ? image_name :
+        "window-close-symbolic");
+    gtk_image_set_from_gicon (self->image,
+            icon,
             GTK_ICON_SIZE_MENU);
     multitab_close_button_set_size (self);
 }
