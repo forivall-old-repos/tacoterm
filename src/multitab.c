@@ -2161,8 +2161,8 @@ void multi_tab_remove_close_button(MultiTab *tab)
 
 void multi_tab_set_status_icon_name(MultiTab *tab, const char *name)
 {
-    if (!strcmp(tab->status_icon_name ? tab->status_icon_name : "window-close",
-            name ? name : "window-close"))
+    if (!strcmp(tab->status_icon_name ? tab->status_icon_name : "window-close-symbolic",
+            name ? name : "window-close-symbolic"))
     {
         return;
     }
