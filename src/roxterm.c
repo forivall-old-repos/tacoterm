@@ -1224,7 +1224,7 @@ static const GdkRGBA *roxterm_get_background_colour_with_transparency(
             colour_scheme_get_background_colour(roxterm->colour_scheme, TRUE);
     static GdkRGBA background;
     float alpha = roxterm_get_config_saturation(roxterm);
-    
+
     if (bgro)
     {
         background = *bgro;
@@ -1251,7 +1251,7 @@ roxterm_apply_colour_scheme(ROXTermData *roxterm, VteTerminal *vte)
             colour_scheme_get_foreground_colour(roxterm->colour_scheme, TRUE);
     const GdkRGBA *background =
             roxterm_get_background_colour_with_transparency(roxterm);
-    
+
     vte_terminal_set_default_colors(vte);
     ncolours = colour_scheme_get_palette_size(roxterm->colour_scheme);
     if (ncolours)
@@ -4507,7 +4507,8 @@ void roxterm_init(void)
 {
     char *logo_filename = logo_find();
 
-    gtk_window_set_default_icon_from_file(logo_filename, NULL);
+    gtk_window_set_default_icon_name("utilities-terminal");
+    // gtk_window_set_default_icon_from_file(logo_filename, NULL);
     g_free(logo_filename);
 
     roxterm_encodings = encodings_load();
